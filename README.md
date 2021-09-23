@@ -1,6 +1,6 @@
 ## Install requirements:
 ```
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 
 ## Run the program :
