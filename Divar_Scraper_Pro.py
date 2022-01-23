@@ -255,10 +255,10 @@ def change_city(driver):
 
 
 #extract links from divar.ir
-def divar_serach_sl(driver, query, city='tehran', catigory=None, limit = None):
+def divar_serach_sl(driver, query, city='tehran', category=None, limit = None):
 
-    if catigory:
-        url = f'https://divar.ir/s/{city}/{catigory}?q={query}'
+    if category:
+        url = f'https://divar.ir/s/{city}/{category}?q={query}'
     else:
         url = f'https://divar.ir/s/{city}?q={query}'
     #validition url

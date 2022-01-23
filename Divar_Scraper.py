@@ -21,9 +21,9 @@ def extract_urls(page_source):
     return result
 
 #divar search
-def divar_serach(query, city='tehran', catigory=None, limit = None):
-    if catigory:
-        url = f'https://divar.ir/s/{city}/{catigory}?q={query}'
+def divar_serach(query, city='tehran', category=None, limit = None):
+    if category:
+        url = f'https://divar.ir/s/{city}/{category}?q={query}'
     else:
         url = f'https://divar.ir/s/{city}?q={query}'
     ##

@@ -8,29 +8,6 @@ import os,json
 
 from config import *
 # -----functions ----------
-'''
-#cities
-    cities = Get_cities()
-    #extract urls
-    for city in cities:
-        result = divar_serach_sl(driver, "زیبایی", city=city,limit=limit)
-        #clear cache
-        driver.delete_all_cookies()
-        #result
-        if not result:
-            continue
-        #add new urls to main urls
-        urls.extend(result)
-    
-    #urls = divar_serach_sl(driver, "پراید")
-
-    print(len(urls))
-
-    if urls:
-        phones_str = map(str,phones)
-        with open("links.txt","w",encoding="utf-8") as file:
-            file.write("\n".join(urls))
-'''
 
 #json get cities
 def Get_cities():
@@ -90,13 +67,13 @@ def update_file(path, file_name, new_data):
 
 
 # extraction process
-def Extraction_Process(output_path, driver, query, limit, city='tehran', catigory=None):
+def Extraction_Process(output_path, driver, query, limit, city='tehran', category=None):
     # fields
     phones = []
     urls = []
 
     # extract urls
-    urls = divar_serach_sl(driver, query, city, catigory, limit)
+    urls = divar_serach_sl(driver, query, city, category, limit)
     if not urls:
         print("Error to Extract Urls !")
         return False
@@ -120,7 +97,6 @@ def Extraction_Process(output_path, driver, query, limit, city='tehran', catigor
 
 # one time extract
 def main():
-    #import config
     # create output path
     if not os.path.exists(output_path):
         os.mkdir(output_path)
@@ -134,7 +110,7 @@ def main():
 
     # firstly extractin process
     Extraction_Process(output_path=output_path, driver=driver,
-                                query=query, limit=limit, city=city, catigory=catigory)
+                                query=query, limit=limit, city=city, category=category)
     
     
     '''
@@ -143,7 +119,7 @@ def main():
         try:
             #do function
             Extraction_Process(output_path=output_path, driver=driver,
-                                query=query, limit=100, city=city, catigory=catigory)
+                                query=query, limit=100, city=city, category=category)
             #sleeping
             sleep(time_loop_check)
         except Exception as e:
